@@ -2,10 +2,7 @@ package classes;
 
 import interfaces.RadioInterface;
 
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> 98830ccf5753e0776629bca69a9f16d6c7eb87d5
 
 public class Radio implements RadioInterface {
     private boolean isOn = false;
