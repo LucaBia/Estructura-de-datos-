@@ -12,6 +12,8 @@ public class Main {
         int button;
 
         while (run) {
+            System.out.println(myRadio);
+
             if (myRadio.getState()) {
                 System.out.println(Menu.menu2());
                 option = input.nextInt();

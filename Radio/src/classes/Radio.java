@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Radio implements RadioInterface {
     private boolean isOn = false;
     private boolean isInFM = false;
-    private double station;
-    private ArrayList<Double> buttons;
+    private double station = 550.0;
+    private ArrayList<Double> buttons = new ArrayList<Double>();
 
     private static final double FM_Increment = 0.2;
     private static final double FM_Min = 87.9;
@@ -76,5 +76,23 @@ public class Radio implements RadioInterface {
         if (numButton <= 12) {
             this.station = this.buttons.get(numButton-1);
         }
+    }
+
+    @Override
+    public String toString() {
+        String radio = "Radio: ";
+        if (this.isOn) {
+            radio += "ON\n";
+        } else {
+            radio += "OFF\n";
+        }
+        if (this.isInFM) {
+            radio += "Frecuencia: FM\n";
+        } else {
+            radio += "Frecuencia: AM\n";
+        }
+        radio += "Estacion: " + this.station;
+
+        return radio;
     }
 }
