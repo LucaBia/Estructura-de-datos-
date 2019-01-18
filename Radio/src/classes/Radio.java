@@ -108,19 +108,11 @@ public class Radio implements RadioInterface {
     @Override
     public void changeStationButton(int numButton) {
         if (numButton <= 12) {
-<<<<<<< HEAD
             this.station = this.buttons.get(numButton-1);
-            if (this.station < FM_Max && this.station > FM_Min) {
-                this.isInFM = true;
-            } else {
-                this.isInFM = false;
-            }
-=======
+            this.isInFM = this.station < FM_Max && this.station > FM_Min;
             if (this.buttons.get(numButton-1) != null ){
                 this.station = this.buttons.get(numButton-1);
             }
-
->>>>>>> d44678593641164222455d244e62c014d8aa4ba5
         }
     }
 
