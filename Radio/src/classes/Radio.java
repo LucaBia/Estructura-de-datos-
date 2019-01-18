@@ -3,6 +3,7 @@ package classes;
 import interfaces.RadioInterface;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * La clase Radio se utiliza para crear las funciones primordiales que contiene un radio.
@@ -11,7 +12,7 @@ public class Radio implements RadioInterface {
     private boolean isOn = false;
     private boolean isInFM = false;
     private double station = 550.0;
-    private ArrayList<Double> buttons = new ArrayList<Double>();
+    private ArrayList<Double> buttons = new ArrayList<>(Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
 
     private static final double FM_Increment = 0.2;
     private static final double FM_Min = 87.9;
@@ -107,10 +108,11 @@ public class Radio implements RadioInterface {
     @Override
     public void changeStationButton(int numButton) {
         if (numButton <= 12) {
+            this.station = this.buttons.get(numButton-1);
+            this.isInFM = this.station < FM_Max && this.station > FM_Min;
             if (this.buttons.get(numButton-1) != null ){
                 this.station = this.buttons.get(numButton-1);
             }
-
         }
     }
 
