@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class Radio implements RadioInterface {
     private boolean isOn = false;
     private boolean isInFM = false;
-    private double station;
-    private ArrayList<Double> buttons;
+    private double station = 550.0;
+    private ArrayList<Double> buttons = new ArrayList<Double>();
 
     private static final double FM_Increment = 0.2;
     private static final double FM_Min = 87.9;
@@ -60,7 +60,7 @@ public class Radio implements RadioInterface {
     }
 
     /**
-     * Cambia de estación ya sea para subir o bajar de estacion
+     * Cambia de estacion ya sea para subir o bajar de estacion
      * @param up indica si va la estacion puede subir o  bajar
      */
     @Override
@@ -81,8 +81,8 @@ public class Radio implements RadioInterface {
     }
 
     /**
-     * captura la estación en la que se encuentra el radio
-     * @return estación actual
+     * captura la estacion en la que se encuentra el radio
+     * @return estacion actual
      */
     @Override
     public double getStation() {
@@ -90,7 +90,7 @@ public class Radio implements RadioInterface {
     }
 
     /**
-     * Guarda una estación en cualquiera de los 12 botones
+     * Guarda una estacion en cualquiera de los 12 botones
      * @param numButton cual de los 12 botones es
      */
     @Override
@@ -101,13 +101,38 @@ public class Radio implements RadioInterface {
     }
 
     /**
-     * Cambia la estación actual a la estación guardada en el botón
-     * @param numButton cual de los 12 botones presionó
+     * Cambia la estacion actual a la estacion guardada en el boton
+     * @param numButton cual de los 12 botones presiono
      */
     @Override
     public void changeStationButton(int numButton) {
         if (numButton <= 12) {
-            this.station = this.buttons.get(numButton-1);
+            if (this.buttons.get(numButton-1) != null ){
+                this.station = this.buttons.get(numButton-1);
+            }
+
         }
+    }
+
+    /**
+     * Imprime la interfaz del radio con todas sus propiedades
+     * @return radio completo
+     */
+    @Override
+    public String toString() {
+        String radio = "Radio: ";
+        if (this.isOn) {
+            radio += "ON\n";
+        } else {
+            radio += "OFF\n";
+        }
+        if (this.isInFM) {
+            radio += "Frecuencia: FM\n";
+        } else {
+            radio += "Frecuencia: AM\n";
+        }
+        radio += "Estacion: " + this.station;
+
+        return radio;
     }
 }
