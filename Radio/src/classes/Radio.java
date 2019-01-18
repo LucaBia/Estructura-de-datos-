@@ -1,14 +1,12 @@
 package classes;
 
-import interfaces.RadioInterface;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
  * La clase Radio se utiliza para crear las funciones primordiales que contiene un radio.
  */
-public class Radio implements RadioInterface {
+public class Radio implements interfaces.Radio {
     private boolean isOn = false;
     private boolean isInFM = false;
     private double station = 550.0;

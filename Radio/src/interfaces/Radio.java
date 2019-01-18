@@ -3,7 +3,7 @@ package interfaces;
 /**
  * Interfaz que contiene los elementos basicos para crear un radio
  */
-public interface RadioInterface {
+public interface Radio {
     void toggle();
     boolean getState();
     void changeFrecuency();
